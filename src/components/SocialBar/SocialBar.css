@@ -1,0 +1,7 @@
+.social-bar {
+  display: flex;
+  height: 48px;
+  width: 300px;
+  justify-content: space-around;
+  align-items: center;
+}

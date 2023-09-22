@@ -1,0 +1,15 @@
+.custom-button {
+  width: 40%;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+}
+
+.custom-button-container {
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-size: 12px;
+}
