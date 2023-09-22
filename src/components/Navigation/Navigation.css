@@ -1,0 +1,14 @@
+.navigation-container {
+  background: linear-gradient(180deg, #4285f4 0%, #3c83f9 100%);
+  width: 80%;
+  height: 93%;
+  color: white;
+  border-radius: 20px;
+}
+
+.navigation {
+  padding: 20%;
+}
+.navigation-list {
+  display: flex;
+}
