@@ -1,39 +1,46 @@
 import "./Navigation.css";
+
+import { dashboard, schedule, transaction, setting, user } from "../../assets";
 const Navigation = () => {
   return (
     <div className="navigation-container">
       <div className="navigation">
         <div className="top">
           <div className="heading">
-            <h1>board</h1>
+            <h1>Board.</h1>
           </div>
           <div className="list">
-            <a href="/">
-              <span></span>
-              Dashboard
-            </a>
-            <a href="/">
-              <span></span>
-              Transactions
-            </a>
+            <div className="active">
+              <img src={dashboard} alt="dashboard-icon" />
+              <span>Dashboard</span>
+            </div>
+            <div>
+              <img src={transaction} alt="transaction icon" />
+              <span>Transactions</span>
+            </div>
 
-            <a href="/">
-              <span></span>
-              Schedules
-            </a>
+            <div>
+              <img src={schedule} alt="schedule icon" />
+              <span>Schedules</span>
+            </div>
 
-            <a href="/">
-              <span></span>
-              Users
-            </a>
-            <a href="/">
-              <span></span>
-              Settings
-            </a>
+            <div>
+              <img src={user} alt="user icon" />
+              <span>Users</span>
+            </div>
+            <div>
+              <img src={setting} alt="settings icon" />
+              <span>Settings</span>
+            </div>
           </div>
         </div>
         <div className="bottom">
-          <div></div>
+          <div>
+            <a>Help</a>
+          </div>
+          <div>
+            <a>Contact Us</a>
+          </div>
         </div>
       </div>
     </div>

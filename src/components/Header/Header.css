@@ -1,0 +1,33 @@
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-header-left {
+  .dash-heading {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+.dash-header-right {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  .search {
+    background-color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .search > input {
+    background: none;
+    border: none;
+    height: 20px;
+  }
+  .profile > img {
+    border-radius: 50%;
+  }
+}
