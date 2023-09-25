@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import db, { doc, setDoc } from "../../utils/firebase";
 import "./Modal.css";
 
@@ -84,7 +84,7 @@ const Modal = ({ closeModal, formData, setFormData, user }) => {
       isImportant: false,
     },
   ];
-
+  const [next, setNext] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const storeData = async () => {
@@ -97,13 +97,9 @@ const Modal = ({ closeModal, formData, setFormData, user }) => {
     } finally {
       setIsLoading(false);
       closeModal(false);
+      window.location.reload();
     }
   };
-
-  const [next, setNext] = useState(false);
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
 
   const backbtnstyle = {
     backgroundColor: "white",

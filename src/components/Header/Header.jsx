@@ -28,13 +28,13 @@ const Header = ({ isNavOpen, setIsNavOpen }) => {
       <div className="dash-header-right">
         <div className="search">
           <input type="text" placeholder="search..." />
-          <img src={searchicon} alt="" />
+          <img src={searchicon} alt="search icon" />
         </div>
         <div className="notification">
-          <img src={notification} alt="" />
+          <img src={notification} alt="notification icon" />
         </div>
         <div className="profile">
-          <img src={profilepic} alt="" onClick={logOut} />
+          <img src={profilepic} alt="profile" onClick={logOut} />
         </div>
       </div>
     </div>

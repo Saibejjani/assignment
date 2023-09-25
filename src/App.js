@@ -17,8 +17,6 @@ function App() {
         });
         const snapshot = await getDoc(doc(db, "users", user.uid));
         setUserData(snapshot.data());
-        console.log(snapshot.data());
-        console.log(user);
       } else {
         setUser(null);
       }
