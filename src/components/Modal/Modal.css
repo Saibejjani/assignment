@@ -1,0 +1,184 @@
+.Input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Input-container input {
+  width: 464px;
+  padding: 12px;
+  border: 1px solid rgba(242, 242, 242, 1);
+  color: #231f20;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+.Input-container input::placeholder {
+  color: #999ca0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.Input-container label {
+  color: #231f20;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.modalbackground {
+  position: absolute;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modalcontainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 20px;
+  width: 544px;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+}
+
+.titlecontainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.body {
+  width: 496px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: center;
+}
+
+.body-navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 480px;
+  height: 40px;
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #231f20;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.body-line {
+  border-radius: 30px;
+  height: 4px;
+  width: 213px;
+  background: rgba(217, 217, 217, 1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field-container {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  width: 496px;
+  height: 40px;
+  padding: 0 24px;
+  margin: 24px 0;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.footer button {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+  background: rgba(62, 132, 248, 1);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.title {
+  color: #231f20;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  word-wrap: break-word;
+}
+
+.titleclosebtn {
+  font-weight: 200;
+  cursor: pointer;
+}
+
+@media (max-width: 620px) {
+  .modalcontainer {
+    max-width: 90%;
+  }
+
+  .titlecontainer {
+    max-width: 90%;
+  }
+
+  .body {
+    max-width: 90%;
+  }
+
+  .body-navbar {
+    max-width: 100%;
+
+    .navbar-item {
+      max-width: 50%;
+      .body-line {
+        max-width: 90%;
+      }
+    }
+
+    .input-field-container {
+      max-width: 100%;
+    }
+  }
+
+  .Input-container {
+    max-width: 100%;
+  }
+  .Input-container input {
+    max-width: 90%;
+  }
+
+  .footer {
+    max-width: 85%;
+  }
+  .modalbackground {
+    height: 200%;
+  }
+}

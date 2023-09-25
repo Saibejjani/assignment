@@ -1,11 +1,50 @@
+import { useState, useEffect } from "react";
+import db, {
+  auth,
+  getRedirectResult,
+  onAuthStateChanged,
+} from "./utils/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { SignIn, Dashboard } from "./pages";
 import "./App.css";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import SignIn from "./pages/SignIn/SignIn";
 
 function App() {
+  const [userData, setUserData] = useState({});
+  const [user, setUser] = useState(null);
+
+  getRedirectResult(auth)
+    .then((result) => {
+      setUser(result.user);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  useEffect(() => {
+    const ubsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        setUser({
+          uid: user.uid,
+          email: user.email,
+        });
+
+        const snapshot = await getDoc(doc(db, "users", user.uid));
+        setUserData(snapshot.data());
+        console.log(snapshot.data());
+        console.log(user);
+      } else {
+        setUser(null);
+      }
+    });
+    return ubsubscribe;
+  }, []);
   return (
     <div className="App">
-      <Dashboard />
+      {!user ? (
+        <SignIn setUser={setUser} />
+      ) : (
+        <Dashboard user={user} userData={userData} />
+      )}
     </div>
   );
 }

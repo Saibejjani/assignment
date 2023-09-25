@@ -121,6 +121,7 @@
   font-size: 16px;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .socialbar-container {
@@ -133,6 +134,7 @@
 .register {
   text-align: center;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .register > span {
@@ -145,12 +147,14 @@
   }
   .signin-container {
     justify-content: center;
+    align-items: flex-start;
+    margin-top: 25%;
   }
 
   .socialbar-container {
     filter: invert(1);
     left: 50%;
-    bottom: 5%;
+    bottom: 0%;
   }
 
   .logo-container {
@@ -160,8 +164,8 @@
   }
 }
 
-@media (max-height: 668px) {
+@media (max-height: 750px) {
   .socialbar-container {
-    bottom: -2%;
+    bottom: -20%;
   }
 }

@@ -1,15 +1,22 @@
+import { useEffect, useRef, useState } from "react";
 import "./Dashboard.css";
-import Navigation from "../../components/Navigation";
-import Header from "../../components/Header/Header";
-import StatCard from "../../components/StatCard/StatCard";
 import {
   totallikes,
   totalrevenue,
   totaltransactions,
   totalusers,
 } from "../../assets";
+import {
+  Navigation,
+  ProductsCard,
+  MainChart,
+  ProfileCard,
+  Header,
+  StatCard,
+  Modal,
+} from "../../components";
 
-const Dashboard = () => {
+const Dashboard = ({ user, userData }) => {
   const dummyStats = [
     {
       icon: totalrevenue,
@@ -41,16 +48,30 @@ const Dashboard = () => {
     },
   ];
 
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({});
+
+  const navRef = useRef();
+
+  useEffect(() => {
+    if (isNavOpen) {
+      navRef.current.classList.add("mobile-open");
+    } else {
+      navRef.current.classList.remove("mobile-open");
+    }
+  }, [isNavOpen]);
+
   return (
     <div className="dashboard">
-      <div className="left">
-        <Navigation />
+      <div className="left" ref={navRef}>
+        <Navigation isNavOpen={isNavOpen} />
       </div>
 
       <div className="right">
         <div className="right-container">
           <div>
-            <Header />
+            <Header isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
           </div>
           <div className="statcard-renderer">
             {dummyStats.map((val, ind) => {
@@ -61,14 +82,26 @@ const Dashboard = () => {
                   amount={val.amount}
                   change={val.change}
                   iconbag={val.iconbag}
+                  key={ind}
                 />
               );
             })}
           </div>
-          <div></div>
-          <div>
-            <div></div>
-            <div></div>
+          <div className="graph-renderer">
+            <MainChart />
+          </div>
+          <div className="bottomcard-rendrer">
+            <ProductsCard />
+
+            <ProfileCard modalOpen={setIsModalOpen} userData={userData} />
+            {isModalOpen && (
+              <Modal
+                closeModal={setIsModalOpen}
+                formData={formData}
+                setFormData={setFormData}
+                user={user}
+              />
+            )}
           </div>
         </div>
       </div>

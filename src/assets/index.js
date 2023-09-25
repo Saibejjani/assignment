@@ -17,7 +17,13 @@ import totalrevenue from "./revenue.svg";
 import totaltransactions from "./totaltransactions.svg";
 import totallikes from "./totallikes.svg";
 import totalusers from "./totalusers.svg";
+import addProfile from "./addprofile.svg";
 
+import whatsapp from "./whatsapp.svg";
+import insta from "./insta.svg";
+import mail from "./mail.svg";
+import youtube from "./youtube.svg";
+import phone from "./phone.jpg";
 export {
   google,
   apple,
@@ -37,4 +43,10 @@ export {
   totallikes,
   totaltransactions,
   totalusers,
+  addProfile,
+  whatsapp,
+  insta,
+  mail,
+  youtube,
+  phone,
 };

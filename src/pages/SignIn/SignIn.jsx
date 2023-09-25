@@ -1,11 +1,60 @@
-import { useState } from "react";
-
-import "./SignIn.css";
-import { SocialBar, Button } from "../../components";
+import { useState, useRef } from "react";
 import { google, apple } from "../../assets/index";
 
-const SignIn = () => {
-  // const [accountLogin, setAccountLogin] = useState({});
+import { SocialBar, Button } from "../../components";
+import "./SignIn.css";
+
+import {
+  auth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithRedirect,
+  googleProvider,
+} from "../../utils/firebase";
+
+const SignIn = ({ setUser }) => {
+  // const [accountLogin, setAccountLogin] = useState({});c
+  const [signUp, setSignUp] = useState(false);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const register = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(
+      auth,
+      emailRef.current.value,
+      passwordRef.current.value
+    )
+      .then((userCredential) => {
+        const user = userCredential;
+        console.log(user);
+      })
+      .catch((error) => {
+        alert(error.message);
+        console.log(error);
+      });
+  };
+
+  const signIn = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(
+      auth,
+      emailRef.current.value,
+      passwordRef.current.value
+    )
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        alert(error.message);
+        console.log(error);
+      });
+  };
+
+  const signInWithGoogle = () => {
+    signInWithRedirect(auth, googleProvider);
+  };
+
   return (
     <div className="signin">
       <div className="logo-container">
@@ -24,33 +73,62 @@ const SignIn = () => {
               <p>Sign into your account</p>
             </div>
             <div className="signin-options">
-              <Button img={google} link={""} platform={"Google"} />
+              <Button
+                img={google}
+                platform={"Google"}
+                onClick={signInWithGoogle}
+              />
               <Button img={apple} link={""} platform={"Apple"} />
             </div>
             <div className="signin-form-container">
               <form action="" className="signin-form">
                 <div className="email-container input">
                   <label htmlFor="email">Email address</label>
-                  <input id="email" type="text" />
+                  <input ref={emailRef} id="email" type="text" />
                 </div>
                 <div className="password-container input">
                   <label htmlFor="password">Password</label>
-                  <input id="password" type="password" />
+                  <input ref={passwordRef} id="password" type="password" />
                 </div>
                 <div className="forgot-container">
-                  <a href="">Forgot Password?</a>
+                  <a>Forgot Password?</a>
                 </div>
                 <div className="submit-container">
-                  <button type="submit" className="sumbit-button">
-                    Sign In
-                  </button>
+                  {signUp ? (
+                    <button
+                      type="submit"
+                      className="sumbit-button"
+                      onClick={register}
+                    >
+                      Sign Up
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="sumbit-button"
+                      onClick={signIn}
+                    >
+                      Sign In
+                    </button>
+                  )}
                 </div>
               </form>
             </div>
-            <div className="create-account-container">
-              <p className="register">
-                Don't have an account? <span>Register here</span>
-              </p>
+            <div
+              className="create-account-container"
+              onClick={() => {
+                setSignUp((prev) => !prev);
+              }}
+            >
+              {signUp ? (
+                <p className="register">
+                  Already have an acccount? <span>Sign In</span>
+                </p>
+              ) : (
+                <p className="register">
+                  Don't have an account? <span>Register here</span>
+                </p>
+              )}
             </div>
           </div>
         </div>

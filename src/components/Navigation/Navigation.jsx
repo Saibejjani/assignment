@@ -1,7 +1,10 @@
 import "./Navigation.css";
 
 import { dashboard, schedule, transaction, setting, user } from "../../assets";
-const Navigation = () => {
+import { useEffect, useRef } from "react";
+const Navigation = ({ isNavOpen }) => {
+  const navRef = useRef();
+
   return (
     <div className="navigation-container">
       <div className="navigation">
@@ -9,7 +12,7 @@ const Navigation = () => {
           <div className="heading">
             <h1>Board.</h1>
           </div>
-          <div className="list">
+          <div className="list ">
             <div className="active">
               <img src={dashboard} alt="dashboard-icon" />
               <span>Dashboard</span>

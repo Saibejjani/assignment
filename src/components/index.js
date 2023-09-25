@@ -1,2 +1,9 @@
 export { default as SocialBar } from "./SocialBar";
 export { default as Button } from "./Button";
+export { default as Header } from "./Header";
+export { default as MainChart } from "./MainChart";
+export { default as Modal } from "./Modal";
+export { default as Navigation } from "./Navigation";
+export { default as ProductsCard } from "./ProductsCard";
+export { default as ProfileCard } from "./ProfileCard";
+export { default as StatCard } from "./StatCard";

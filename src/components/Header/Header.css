@@ -29,5 +29,24 @@
   }
   .profile > img {
     border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.hamburgernav {
+  display: none;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+@media (max-width: 850px) {
+  .hamburgernav {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .search {
+    display: none;
   }
 }

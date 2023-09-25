@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  min-width: 196px;
 }
 
 .statcard-icon {
@@ -55,5 +56,12 @@
     line-height: 16px;
     letter-spacing: 0.5px;
     word-wrap: break-word;
+  }
+}
+
+@media (max-width: 1360px) {
+  .statcard-renderer {
+    justify-content: space-evenly;
+    gap: 20px;
   }
 }
