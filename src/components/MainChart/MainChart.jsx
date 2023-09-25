@@ -52,7 +52,7 @@ const MainChart = () => {
 
         setYears(year);
       }
-      console.log(years);
+
       setLabels((prev) => [json.data[0].State, ...prev]);
       console.log(lables);
       return;

@@ -85,8 +85,19 @@ const Modal = ({ closeModal, formData, setFormData, user }) => {
     },
   ];
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const storeData = async () => {
-    await setDoc(doc(db, "users", user.uid), formData);
+    try {
+      setIsLoading(true);
+      const result = await setDoc(doc(db, "users", user.uid), formData);
+      console.log(result);
+    } catch (error) {
+      alert(error);
+    } finally {
+      setIsLoading(false);
+      closeModal(false);
+    }
   };
 
   const [next, setNext] = useState(false);
@@ -197,10 +208,9 @@ const Modal = ({ closeModal, formData, setFormData, user }) => {
                 type="submit"
                 onClick={() => {
                   storeData();
-                  closeModal(false);
                 }}
               >
-                Done
+                {isLoading ? "Loading..." : "Done"}
               </button>
             )}
           </div>

@@ -15,7 +15,6 @@ function App() {
           uid: user.uid,
           email: user.email,
         });
-
         const snapshot = await getDoc(doc(db, "users", user.uid));
         setUserData(snapshot.data());
         console.log(snapshot.data());
@@ -26,6 +25,7 @@ function App() {
     });
     return ubsubscribe;
   }, []);
+
   return (
     <div className="App">
       {!user ? (

@@ -3,12 +3,8 @@ import "./ProfileCard.css";
 import { addProfile } from "../../assets/";
 
 import { mail, youtube, insta, phone } from "../../assets/";
-import { useEffect } from "react";
 
 const ProfileCard = ({ modalOpen, userData }) => {
-  useEffect(() => {
-    console.log(userData);
-  });
   return (
     <div className="profilecard">
       <div className="profilecard-container">
