@@ -95,7 +95,7 @@ const SignIn = ({ setUser }) => {
                   <input ref={passwordRef} id="password" type="password" />
                 </div>
                 <div className="forgot-container">
-                  <a>Forgot Password?</a>
+                  <a href="/">Forgot Password?</a>
                 </div>
                 <div className="submit-container">
                   {signUp ? (

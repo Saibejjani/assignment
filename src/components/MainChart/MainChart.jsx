@@ -64,8 +64,10 @@ const MainChart = () => {
     await fetchData("04000US36", setNyPopulation);
     await fetchData("04000US22", setLaPopulation);
   };
+
   useEffect(() => {
     assignData();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {

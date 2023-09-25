@@ -1,7 +1,7 @@
 import { auth, signOut } from "../../utils/firebase";
 import { profilepic, searchicon, notification } from "../../assets";
 import "./Header.css";
-import { useState } from "react";
+
 const Header = ({ isNavOpen, setIsNavOpen }) => {
   const logOut = async () => {
     try {
