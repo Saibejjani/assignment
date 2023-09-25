@@ -1,10 +1,8 @@
 import "./Navigation.css";
 
 import { dashboard, schedule, transaction, setting, user } from "../../assets";
-import { useEffect, useRef } from "react";
-const Navigation = ({ isNavOpen }) => {
-  const navRef = useRef();
 
+const Navigation = ({ isNavOpen }) => {
   return (
     <div className="navigation-container">
       <div className="navigation">
@@ -39,10 +37,10 @@ const Navigation = ({ isNavOpen }) => {
         </div>
         <div className="bottom">
           <div>
-            <a>Help</a>
+            <a href="/">Help</a>
           </div>
           <div>
-            <a>Contact Us</a>
+            <a href="/">Contact Us</a>
           </div>
         </div>
       </div>
