@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   signInWithRedirect,
   getRedirectResult,
+  signInWithPopup,
 } from "firebase/auth";
 
 import { collection, getDocs, setDoc, doc } from "firebase/firestore";
@@ -41,5 +42,6 @@ export {
   googleProvider,
   signInWithRedirect,
   getRedirectResult,
+  signInWithPopup,
 };
 export default db;

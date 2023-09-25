@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { google, apple } from "../../assets/index";
-
 import { SocialBar, Button } from "../../components";
 import "./SignIn.css";
 
@@ -8,12 +7,11 @@ import {
   auth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signInWithRedirect,
+  signInWithPopup,
   googleProvider,
 } from "../../utils/firebase";
 
 const SignIn = ({ setUser }) => {
-  // const [accountLogin, setAccountLogin] = useState({});c
   const [signUp, setSignUp] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -51,8 +49,14 @@ const SignIn = ({ setUser }) => {
       });
   };
 
-  const signInWithGoogle = () => {
-    signInWithRedirect(auth, googleProvider);
+  const signInWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      setUser(user);
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (

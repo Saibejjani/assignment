@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import db, {
-  auth,
-  getRedirectResult,
-  onAuthStateChanged,
-} from "./utils/firebase";
+import db, { auth, onAuthStateChanged } from "./utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { SignIn, Dashboard } from "./pages";
 import "./App.css";
@@ -11,14 +7,6 @@ import "./App.css";
 function App() {
   const [userData, setUserData] = useState({});
   const [user, setUser] = useState(null);
-
-  getRedirectResult(auth)
-    .then((result) => {
-      setUser(result.user);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
 
   useEffect(() => {
     const ubsubscribe = onAuthStateChanged(auth, async (user) => {
